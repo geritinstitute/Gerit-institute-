@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerit Institute | مسیر عالی‌ها</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: Tahoma, sans-serif;
+      background: #0f1e30;
+      color: white;
+      min-height: 100vh;
+    }
+    
+    /* هدر */
+    header {
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+    
+    .logo span { color: #d4a017; }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+    
+    nav a:hover { color: #d4a017; }
+    
+    /* بخش اصلی */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0f1e30 0%, #1a3a5c 100%);
+    }
+    
+    .hero h1 {
+      font-size: 56px;
+      letter-spacing: 6px;
+      margin-bottom: 15px;
+    }
+    
+    .hero h1 span { color: #d4a017; }
+    
+    .hero .tagline {
+      font-size: 20px;
+      color: #d4a017;
+      margin-bottom: 40px;
+    }
+    
+    .hero .desc {
+      font-size: 16px;
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto 50px;
+      line-height: 1.8;
+    }
+    
+    /* شمارش معکوس */
+    .countdown-title {
+      font-size: 18px;
+      color: #d4a017;
+      margin-bottom: 20px;
+    }
+    
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    
+    .countdown-box {
+      background: rgba(255,255,255,0.08);
+      border: 2px solid #d4a017;
+      border-radius: 12px;
+      padding: 20px 25px;
+      min-width: 100px;
+      backdrop-filter: blur(10px);
+    }
+    
+    .countdown-box .num {
+      font-size: 38px;
+      font-weight: bold;
+      color: #d4a017;
+      display: block;
+    }
+    
+    .countdown-box .label {
+      font-size: 13px;
+      color: #ccc;
+      margin-top: 5px;
+    }
+    
+    /* دکمه‌ها */
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 15px 35px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+      border: none;
+      font-family: Tahoma;
+    }
+    
+    .btn-primary {
+      background: #d4a017;
+      color: #0f1e30;
+    }
+    
+    .btn-primary:hover {
+      background: #f0b820;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(212,160,23,0.3);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 2px solid #d4a017;
+    }
+    
+    .btn-outline:hover {
+      background: #d4a017;
+      color: #0f1e30;
+    }
+    
+    /* بخش اطلاعات آزمون */
+    .exam-info {
+      padding: 60px 20px;
+      background: #0a1725;
+    }
+    
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #d4a017;
+    }
+    
+    .info-cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 15px;
+      padding: 30px 25px;
+      text-align: center;
+      min-width: 200px;
+      border: 1px solid rgba(212,160,23,0.3);
+      transition: transform 0.3s;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #d4a017;
+    }
+    
+    .card .icon {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+    
+    .card .value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #d4a017;
+      margin-bottom: 5px;
+    }
+    
+    .card .label {
+      font-size: 14px;
+      color: #ccc;
+    }
+    
+    /* فوتر */
+    footer {
+      background: #050d15;
+      text-align: center;
+      padding: 30px 20px;
+      color: #666;
+      font-size: 14px;
+    }
+    
+    footer .brand {
+      color: #d4a017;
+      font-weight: bold;
+    }
+    
+    /* موبایل */
+    @media (max-width: 768px) {
+      header { padding: 15px 20px; }
+      nav a { margin: 0 8px; font-size: 13px; }
+      .hero h1 { font-size: 36px; letter-spacing: 4px; }
+      .hero .tagline { font-size: 16px; }
+      .countdown-box { min-width: 75px; padding: 15px; }
+      .countdown-box .num { font-size: 28px; }
+      .section-title { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- هدر -->
+  <header>
+    <div class="logo">GERIT<span>.</span></div>
+    <nav>
+      <a href="#home">خانه</a>
+      <a href="#exam">آزمون</a>
+      <a href="#about">درباره</a>
+      <a href="#contact">تماس</a>
+    </nav>
+  </header>
+
+  <!-- بخش اصلی -->
+  <section class="hero" id="home">
+    <h1>GERIT <span>INSTITUTE</span></h1>
+    <p class="tagline">مسیر عالی‌ها</p>
+    <p class="desc">
+      مؤسسه آموزشی گریت با برگزاری آزمون‌های آزمایشی منظم، 
+      شما رو برای موفقیت در کنکور و المپیاد آماده می‌کنه.
+    </p>
+
+    <!-- شمارش معکوس -->
+    <p class="countdown-title">⏰ تا آزمون بعدی</p>
+    <div class="countdown" id="countdown">
+      <div class="countdown-box">
+        <span class="num" id="days">۰</span>
+        <span class="label">روز</span>
+      </div>
+      <div class="countdown-box">
+        <span class="num" id="hours">۰</span>
+        <span class="label">ساعت</span>
+      </div>
+      <div class="countdown-box">
+        <span class="num" id="minutes">۰</span>
+        <span class="label">دقیقه</span>
+      </div>
+      <div class="countdown-box">
+        <span class="num" id="seconds">۰</span>
+        <span class="label">ثانیه</span>
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <a href="#exam" class="btn btn-primary">ثبت‌نام آزمون</a>
+      <a href="#about" class="btn btn-outline">بیشتر بدانید</a>
+    </div>
+  </section>
+
+  <!-- اطلاعات آزمون -->
+  <section class="exam-info" id="exam">
+    <h2 class="section-title">آزمون بعدی</h2>
+    <div class="info-cards">
+      <div class="card">
+        <div class="icon">📅</div>
+        <div class="value">جمعه</div>
+        <div class="label">۱۸ مهر ۱۴۰۴</div>
+      </div>
+      <div class="card">
+        <div class="icon">🕐</div>
+        <div class="value">۱۷:۰۰</div>
+        <div class="label">ساعت شروع</div>
+      </div>
+      <div class="card">
+        <div class="icon">📝</div>
+        <div class="value">۵۵</div>
+        <div class="label">تعداد سوال</div>
+      </div>
+      <div class="card">
+        <div class="icon">⏱️</div>
+        <div class="value">۱۰۰</div>
+        <div class="label">دقیقه زمان</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- فوتر -->
+  <footer>
+    <p>© ۱۴۰۴ <span class="brand">Gerit Institute</span> — تمامی حقوق محفوظ است</p>
+  </footer>
+
+  <script>
+    // تاریخ آزمون: جمعه ۱۸ مهر ۱۴۰۴ ساعت ۱۷:۰۰
+    // معادل میلادی: 2025-10-10 17:00
+    const examDate = new Date('2025-10-10T17:00:00').getTime();
+
+    // تبدیل اعداد انگلیسی به فارسی
+    function toPersian(num) {
+      const persian = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+      return String(num).padStart(2, '0').split('').map(d => persian[d]).join('');
+    }
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = examDate - now;
+
+      if (diff < 0) {
+        document.getElementById('countdown').innerHTML = 
+          '<p style="color:#d4a017; font-size:20px;">🎯 آزمون شروع شد!</p>';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = toPersian(days);
+      document.getElementById('hours').textContent = toPersian(hours);
+      document.getElementById('minutes').textContent = toPersian(minutes);
+      document.getElementById('seconds').textContent = toPersian(seconds);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
